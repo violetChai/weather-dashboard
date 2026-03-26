@@ -13,11 +13,13 @@ jobs:
       # 1️⃣ Checkout the repo
       - uses: actions/checkout@v5
 
-      # 2️⃣ Deploy files to GitHub Pages
+      # 2️⃣ Configure GitHub Pages
       - uses: actions/configure-pages@v4
 
+      # 3️⃣ Upload artifact (latest supported version)
       - uses: actions/upload-pages-artifact@v2
         with:
           path: '.'  # upload all files in repo root
 
+      # 4️⃣ Deploy Pages
       - uses: actions/deploy-pages@v2
