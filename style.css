@@ -78,6 +78,14 @@ iframe {
 }
 
 .forecast-card {
-  flex: 1 1 30%;
+  flex: 1 1 calc(33.33% - 10px); /* keeps 3 cards in one row */
   margin: 5px;
+  box-sizing: border-box;
+}
+
+/* Responsive for mobile */
+@media (max-width: 500px) {
+  .forecast-card {
+    flex: 1 1 100%;
+  }
 }
