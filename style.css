@@ -1,61 +1,83 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    background: linear-gradient(to right, #89f7fe, #66a6ff);
-    margin: 0;
-    padding: 20px;
-    color: #333;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to right, #89f7fe, #66a6ff);
+  margin: 0;
+  padding: 20px;
+  color: #333;
 }
+
 h1 {
-    text-align: center;
-    color: #fff;
-    margin-bottom: 30px;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 30px;
 }
+
 form {
-    max-width: 400px;
-    margin: 0 auto;
-    display: flex;
-    gap: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  gap: 10px;
 }
+
 input[type="text"] {
-    flex: 1;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 6px;
-    border: none;
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
 }
+
 button {
-    padding: 10px 15px;
-    font-size: 16px;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    background-color: #fff;
-    color: #333;
-    font-weight: bold;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background-color: #fff;
+  color: #333;
+  font-weight: bold;
 }
-#result {
-    max-width: 400px;
-    margin: 30px auto;
+
+#result, #forecast {
+  max-width: 400px;
+  margin: 30px auto;
 }
-.weather-card {
-    background: rgba(255,255,255,0.9);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    text-align: center;
+
+.weather-card, .forecast-card {
+  background: rgba(255,255,255,0.9);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  text-align: center;
+  margin-bottom: 15px;
 }
-.weather-card h2 {
-    margin-top: 0;
+
+.weather-card h2, .forecast-card h3 {
+  margin-top: 0;
 }
+
 .temp {
-    font-size: 2rem;
-    font-weight: bold;
+  font-size: 2rem;
+  font-weight: bold;
 }
+
 .condition {
-    font-size: 1.2rem;
-    margin: 10px 0;
+  font-size: 1.2rem;
+  margin: 10px 0;
 }
+
 iframe {
-    margin-top: 15px;
-    border-radius: 8px;
+  margin-top: 15px;
+  border-radius: 8px;
+}
+
+.forecast-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.forecast-card {
+  flex: 1 1 30%;
+  margin: 5px;
 }
