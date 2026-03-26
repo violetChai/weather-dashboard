@@ -37,7 +37,7 @@ form.addEventListener("submit", async (e) => {
   }
 
   try {
-    // 1️⃣ Geocoding
+    // Geocoding
     const geoResponse = await fetch(
       `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}`
     );
@@ -51,23 +51,17 @@ form.addEventListener("submit", async (e) => {
 
     const { latitude, longitude, name, country } = geoData.results[0];
 
-    // 2️⃣ Current weather
+    // Current + 3-day forecast
     const weatherResponse = await fetch(
       `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=auto`
     );
     const weatherData = await weatherResponse.json();
 
-    if (!weatherData.current_weather) {
-      result.innerHTML = "Weather data not available.";
-      forecastDiv.innerHTML = "";
-      return;
-    }
-
     const { temperature, windspeed, weathercode } = weatherData.current_weather;
     const icon = weatherIcons[weathercode] || "❓";
     const description = weatherDescriptions[weathercode] || "Unknown";
 
-    // 3️⃣ Display current weather
+    // Display current weather
     result.innerHTML = `
       <div class="weather-card">
         <h2>${name}, ${country}</h2>
@@ -86,7 +80,7 @@ form.addEventListener("submit", async (e) => {
       </div>
     `;
 
-    // 4️⃣ 3-Day Forecast
+    // 3-Day Forecast
     const daily = weatherData.daily;
     let forecastHTML = `<h2>3-Day Forecast</h2><div class="forecast-container">`;
     for (let i = 0; i < 3; i++) {
